@@ -1,42 +1,10 @@
 /* Core */
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
+import initialBooks from "./initialBooks";
 
 const initialState: IBooksSliceState = {
-  books: [
-    {
-      id: 1,
-      name: "The Hobbit",
-      price: 50,
-      category: "Fantasy",
-      description:
-        "The Hobbit is a fantasy novel written by English author J. R. R. Tolkien",
-    },
-    {
-      id: 2,
-      name: "The Lord of the Rings",
-      price: 50,
-      category: "Fantasy",
-      description:
-        "The Lord of the Rings is a fantasy novel written by English author J. R. R. Tolkien",
-    },
-    {
-      id: 3,
-      name: "The Silmarillion",
-      price: 50,
-      category: "Fantasy",
-      description:
-        "The Silmarillion is a fantasy novel written by English author J. R. R. Tolkien",
-    },
-    {
-      id: 4,
-      name: "World of Warcraft",
-      price: 50,
-      category: "Fantasy",
-      description:
-        "World of Warcraft is a fantasy novel written by English author J. R. R. Tolkien",
-    },
-  ],
+  books: initialBooks,
   status: "idle",
   showModal: false,
   selectedBook: null,
