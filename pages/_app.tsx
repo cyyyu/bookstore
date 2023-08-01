@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={clsx("flex p-24", inter.className)}>
+    <main className={clsx("flex p-4 md:p-12 lg:p-20", inter.className)}>
       <Providers>
         <Component {...pageProps} />
       </Providers>
