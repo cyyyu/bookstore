@@ -1,10 +1,9 @@
 /* Core */
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
-import initialBooks from "./initialBooks";
 
 const initialState: IBooksSliceState = {
-  books: initialBooks,
+  books: [],
   status: "idle",
   showModal: false,
   selectedBook: null,

@@ -15,13 +15,28 @@ import { createWrapper } from "next-redux-wrapper";
 import { reducer } from "./rootReducer";
 import { middleware } from "./middleware";
 
-export const createReduxStore = () =>
+export const createReduxStore = (preloadedState: any) =>
   configureStore({
     reducer,
     middleware: (getDefaultMiddleware) => {
       return getDefaultMiddleware().concat(middleware);
     },
+    preloadedState,
   });
+
+let store: ReturnType<typeof createReduxStore> | null;
+export const initializeStore = (preloadedState: any) => {
+  let _store = store ?? createReduxStore(preloadedState);
+
+  if (preloadedState && store) {
+    _store = createReduxStore({ ...store.getState(), ...preloadedState });
+    store = null;
+  }
+
+  if (typeof window === "undefined") return _store;
+  if (!store) store = _store;
+  return _store;
+};
 export const wrapper = createWrapper<ReduxStore>(createReduxStore);
 export const useDispatch = () => useReduxDispatch<ReduxDispatch>();
 export const useSelector: TypedUseSelectorHook<ReduxState> = useReduxSelector;
