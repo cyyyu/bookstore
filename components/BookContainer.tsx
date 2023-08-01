@@ -3,15 +3,29 @@
 import { selectBooksState } from "@/lib/redux";
 import Book from "@/components/Book";
 import { useSelector } from "react-redux";
+import AddBookButton from "./AddBookButton";
+import Modal from "./Modal";
+import Form from "./Form";
 
 export default function BookContainer() {
-  const { value: books } = useSelector(selectBooksState);
+  const { books, showModal } = useSelector(selectBooksState);
 
   return (
-    <div className="w-full grid place-items-center grid-cols-2 lg:grid-cols-3 gap-4">
-      {books.map((book) => (
-        <Book key={book.id} book={book} />
-      ))}
+    <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex">
+        <AddBookButton />
+      </div>
+      <div className="w-full grid place-items-center border p-4 grid-cols-2 lg:grid-cols-3 gap-4">
+        {books.map((book) => (
+          <Book key={book.id} book={book} />
+        ))}
+      </div>
+
+      {showModal && (
+        <Modal>
+          <Form />
+        </Modal>
+      )}
     </div>
   );
 }

@@ -7,6 +7,8 @@ interface IBook {
 }
 
 interface IBooksSliceState {
-  value: IBook[];
+  books: IBook[];
   status: "idle" | "loading" | "failed";
+  showModal: boolean;
+  selectedBook: IBook | null;
 }
