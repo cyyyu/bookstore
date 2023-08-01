@@ -58,16 +58,15 @@ export const booksSlice = createSlice({
     deleteBook: (state, action: PayloadAction<IBook["id"]>) => {
       state.books.filter((book) => book.id !== action.payload);
     },
-    editBook: (
-      state,
-      action: PayloadAction<{ [k in keyof IBook]: IBook[k] }>
-    ) => {
+    updateBook: (state, action: PayloadAction<IBook>) => {
       state.books = state.books.map((book) => {
         if (book.id === action.payload.id) {
           return { ...book, ...action.payload };
         }
         return book;
       });
+      state.showModal = false;
+      state.selectedBook = null;
     },
     showAddBookModal: (state, action: PayloadAction<boolean>) => {
       state.selectedBook = null;

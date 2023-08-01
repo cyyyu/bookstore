@@ -103,10 +103,20 @@ export default function Form() {
                   setError("Please fill in all fields");
                   return;
                 }
-                dispatch(booksSlice.actions.addBook(editingBook));
+
+                if (selectedBook) {
+                  dispatch(
+                    booksSlice.actions.updateBook({
+                      ...editingBook,
+                      id: selectedBook.id,
+                    })
+                  );
+                } else {
+                  dispatch(booksSlice.actions.addBook(editingBook));
+                }
               }}
             >
-              Add Book
+              {selectedBook ? "Update" : "Add Book"}
             </button>
           </div>
         </div>
