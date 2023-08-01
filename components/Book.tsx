@@ -20,11 +20,11 @@ export default function Book({ book }: { book: IBook }) {
         <p>
           <span className="font-bold">Category:</span> {book.category}
         </p>
-        <p>
+        <p className="break-all">
           <span className="font-bold">Description:</span> {book.description}
         </p>
       </div>
-      <div>
+      <div className="mt-auto">
         <button
           className="text-sm bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
           onClick={(e) => {

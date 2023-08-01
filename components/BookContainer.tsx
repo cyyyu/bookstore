@@ -15,7 +15,7 @@ export default function BookContainer() {
       <div className="w-full flex">
         <AddBookButton />
       </div>
-      <div className="w-full grid place-items-center border p-4 grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="w-full grid border p-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {books.map((book) => (
           <Book key={book.id} book={book} />
         ))}
