@@ -7,7 +7,7 @@ export default function Book({ book }: { book: IBook }) {
 
   return (
     <div
-      className="border w-full flex flex-col gap-4 p-4 hover:shadow-lg bg-slate-100 cursor-default"
+      className="border w-full flex flex-col gap-4 p-4 hover:shadow-lg bg-orange-50 cursor-default bg-gradient-to-t from-indigo-100"
       onClick={() => dispatch(booksSlice.actions.showEditBookModal(book))}
     >
       <h3 className="font-bold text-xl text-slate-700">
