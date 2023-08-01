@@ -24,6 +24,17 @@ export default function Book({ book }: { book: IBook }) {
           <span className="font-bold">Description:</span> {book.description}
         </p>
       </div>
+      <div>
+        <button
+          className="text-sm bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(booksSlice.actions.deleteBook(book.id));
+          }}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }

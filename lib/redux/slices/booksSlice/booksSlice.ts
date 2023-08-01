@@ -56,7 +56,7 @@ export const booksSlice = createSlice({
       state.selectedBook = null;
     },
     deleteBook: (state, action: PayloadAction<IBook["id"]>) => {
-      state.books.filter((book) => book.id !== action.payload);
+      state.books = state.books.filter((book) => book.id !== action.payload);
     },
     updateBook: (state, action: PayloadAction<IBook>) => {
       state.books = state.books.map((book) => {
